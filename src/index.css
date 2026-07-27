@@ -1,6 +1,5 @@
-/* 
+
 .container {
-  width: 100%;
   position: relative;
 }
 
@@ -9,24 +8,19 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
 }
 
-.inputs-container {
- height: 100%;
-} */
-
-.name2 {
-  /* position: */
-  /* top: 250px;
-  left: 210px; */
-  padding-top: 40%;
-  margin-left: 10%;
-  width: 800px;
-  height: 100px;
-  /* display: flex;
+.name {
+  position: absolute;
+  top: 85px;
+  left: 80px;
+  width: 240px;
+  height: 30px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  font-size: xx-large;
-  font-weight: bolder; */
+  font-size: x-large;
+  font-weight: bolder;
+  /* background-color: red;
+  opacity: 50%; */
 }
