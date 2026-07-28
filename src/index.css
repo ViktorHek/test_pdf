@@ -3,24 +3,44 @@
   position: relative;
 }
 
+.button-container {
+  width: 850px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .container > img,
 .inputs-container {
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
 }
 
-.name {
+.input {
   position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: red;
+  opacity: 50%;
+}
+
+.start {
+  justify-content: flex-start;
+}
+
+.center {
+  justify-content: center;
+}
+
+.name {
   top: 85px;
   left: 80px;
   width: 240px;
   height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: x-large;
   font-weight: bolder;
-  /* background-color: red;
-  opacity: 50%; */
 }
