@@ -146,9 +146,24 @@ const hugo = {
         lv10: [],
     },
     equipment: [
+        {name: "Cell Key", val: "Key to prison cell. Has symbol to match door"},
+        {name: "Lether armor", val: "Not wearing. not profisient"},
+        {name: "Salt", val: ""},
+        {name: "Human Skull", val: ""},
+        {name: "Onix Gem", val: "unknone value"},
+        {name: "Wand of Bone", val: "1 charge left. casting animate dead spell. Needs constitution saving trow, else the undead attack you"},
+        {name: "Human Ashes", val: "From an guard I turned undead."},
+        {name: "Human Flesh", val: "Taken from guard. can be used for animate undead."},
+        {name: "Human Boandust", val: "Taken from guard. can be used for animate undead."},
+        {name: "Human Blood", val: "Taken from guard. can be used for animate undead."},
+        {name: "Fine Shortsword", val: "Value: 10 gp. Damage: 1d6 piercing. Weight: 2 lb. Properties: Finesse, light"},
+        {name: "5 Arrows", val: ""},
+        {name: "Red potion", val: "Unknown effekt"},
+        {name: "Rope 50", val: "50 feet normal rope"},
+        {name: "quarts", val: "väldigt värdefull sten"},
         {name: "ink & Quill", val: ""},
         {name: "Dagger", val: "damage: 1d4 piercing. properties: Finesse, light, thrown (20/60)"},
-        {name: "Book", val: "What is imortality?"}
+        {name: "Books", val: "What is imortality? & story book & Grimoar"}
     ]
 }
 

@@ -173,16 +173,16 @@ function App() {
         <div id="attack_damage_3" className="input start">1d6/thunder</div>
         <div id="attack_list" className="list">
           {char.spells.cantrips.length ? char.spells.cantrips.map(function (x, i) {
-            return <div id={`spell_${i}`}>{x.name}</div>
+            return <div id={`spell_${i}`} onClick={() => openbox(x.name, x.val)}>{x.name}</div>
           }) : null}
           {char.spells.lv1.length ? char.spells.lv1.map(function (x, i) {
-            return <div id={`spell_${i}`}>{x.name}</div>
+            return <div id={`spell_${i}`} onClick={() => openbox(x.name, x.val)}>{x.name}</div>
           }) : null}
         </div>
         {/* Equipment */}
         <div id="equipment" className="list">
           {char.equipment.length ? char.equipment.map(function (x) {
-            return <div id={`equipment_${x.name}`} className="">{x.name}</div>
+            return <div id={`equipment_${x.name}`} onClick={() => openbox(x.name, x.val)}>{x.name}</div>
           }) : 'None'}
         </div>
         <div id="cp" className="input">{char.copper}</div>
@@ -192,11 +192,11 @@ function App() {
         <div id="pp" className="input"></div>
         {/* Right side */}
         <div id="trait" className="input">
-          <button>spells</button>
+          spell slots
         </div>
-        <div id="ideals" className="input"></div>
-        <div id="bonds" className="input"></div>
-        <div id="flaws" className="input"></div>
+        <div id="ideals" className="input">cantrips</div>
+        <div id="bonds" className="input">spells</div>
+        <div id="flaws" className="input">other abilities</div>
         <div id="feats" className="list">
           {char.feat.length ? char.feat.map(function (x) {
             return <div id={`feat_${x.name}`} onClick={() => openbox(x.name, x.val)}>{x.name}</div>
