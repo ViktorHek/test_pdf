@@ -18,8 +18,8 @@
   left: 29px;
   width: 800px;
   height: 90%;
-  background-color: blue;
-  opacity: 50%;
+  background-color: red;
+  /* opacity: 50%; */
   margin: auto;
   display: flex;
   justify-content: center;
@@ -173,9 +173,60 @@
   left: 320px;
   width: 208px;
   height: 45px;
-  justify-content: 'space-evenly';
+  justify-content: space-evenly;
+}
+#temp_hp {
+  top: 368px;
+  left: 320px;
+  width: 208px;
+  height: 45px;
+  justify-content: space-evenly;
+}
+#max_hp2 {
+  top: 442px; 
+  left: 343px;
+  width: 66px;
+  height: 14px;
+}
+#hit_dice {
+  top: 460px;
+  left: 330px;
+  width: 70px;
+  height: 32px;
 }
 
+.stat_mod {
+  position: absolute;
+  left: 50px; 
+  width: 59px; 
+  height: 39px;
+}
+
+.stat_val {
+  position: absolute;
+  width: 29px; 
+  height: 18px;
+  left: 65px;
+}
+
+#str_mod {top: 213px;}
+#str {top: 259px;}
+#dex_mod {top: 313px;}
+#dex {top: 359px;}
+#con_mod {top: 412px;}
+#con {top: 458px;}
+#int_mod {top: 512px;}
+#int {top: 558px;}
+#wis_mod {top: 612px;}
+#wis {top: 657px;}
+#cha_mod {top: 710px;}
+#cha {top: 756px;}
+#passive_perception {
+  top: 821px;
+  left: 44px; 
+  width: 31px; 
+  height: 23px;
+}
 #st_str {top: 289.5px;}
 #st_dex {top: 308.5px;}
 #st_con {top: 327px;}
@@ -226,3 +277,78 @@
 #sleight {top: 729px;} 
 #stealth {top: 748px;} 
 #survival {top: 767px;}
+
+#other {
+  top: 867px;
+  left: 44px;
+  width: 237px;
+  height: 185px;
+}
+
+#attack_name_1,
+#attack_name_2,
+#attack_name_3 {
+  top: 545px;
+  left: 310px;
+  width: 88px;
+  height: 21px;
+}
+#attack_name_1 {
+  top: 545px;
+}
+#attack_name_2 {
+  top: 574px;
+}
+#attack_name_3 {
+  top: 602px;
+}
+#attack_attack_1,
+#attack_attack_2,
+#attack_attack_3 {
+  left: 405px;
+  width: 43px;
+  height: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#attack_attack_1 {
+  top: 545px;
+}
+#attack_attack_2 {
+  top: 574px;
+}
+#attack_attack_3 {
+  top: 602px;
+}
+#attack_damage_1, 
+#attack_damage_2,
+#attack_damage_3 {
+  left: 454px;
+  width: 86px;
+  height: 21px;
+  font-size: 12px;
+}
+#attack_damage_1 {
+  top: 545px;
+}
+#attack_damage_2 {
+  top: 574px;
+}
+#attack_damage_3 {
+  top: 602px;
+}
+
+#attack_list {
+  top: 629px;
+  left: 307px;
+  width: 226px;
+  height: 152px;
+}
+
+#equipment {
+  top: 823px;
+  left: 370px;
+  width: 162px;
+  height: 218px;
+}
