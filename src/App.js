@@ -96,6 +96,12 @@ function App() {
         </div>
         <div id="max_hp2" className="input">{char.hp}</div>
         <div id="hit_dice" className="input">{char.hit_dice}</div>
+        <input type="checkbox" id="dss1" className="checkbox"/>
+        <input type="checkbox" id="dss2" className="checkbox"/>
+        <input type="checkbox" id="dss3" className="checkbox"/>
+        <input type="checkbox" id="dsf1" className="checkbox"/>
+        <input type="checkbox" id="dsf2" className="checkbox"/>
+        <input type="checkbox" id="dsf3" className="checkbox"/>
         {/* Stats */}
         <div id="str_mod" className="input stat_mod" >{str_mod}</div>
         <div id="str" className="input stat_val" >{char.str}</div>
@@ -180,7 +186,20 @@ function App() {
               return <div id={`equipment_${x.name}`} className="">{x.name}</div>
             }) : 'None'}
         </div>
-        
+        <div id="cp" className="input">{char.copper}</div>
+        <div id="sp" className="input">{char.silver}</div>
+        <div id="ep" className="input"></div>
+        <div id="gp" className="input">{char.gold}</div>
+        <div id="pp" className="input"></div>
+        {/* Right side */}
+        <div id="trait" className="input"></div>
+        <div id="ideals" className="input"></div>
+        <div id="bonds" className="input"></div>
+        <div id="flaws" className="input"></div>
+        <div id="feats" className="list">
+            <div>some feet</div>
+            <div>other feet</div>
+        </div>
       </div>
     </div>
   );

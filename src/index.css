@@ -352,3 +352,83 @@
   width: 162px;
   height: 218px;
 }
+
+#cp,
+#sp,
+#ep,
+#gp,
+#pp {
+  left: 312px;
+  width: 54px;
+  height: 28px;
+}
+#cp {top: 830px;}
+#sp {top: 866px;}
+#ep {top: 902px;}
+#gp {top: 938px;}
+#pp {top: 974px;}
+
+#trait {
+  top: 192px;
+  left: 577px;
+  width: 221px;
+  height: 70px;
+}
+
+#ideals {
+  top: 287px;
+  left: 577px;
+  width: 221px;
+  height: 53px;
+}
+
+#bonds {
+  top: 364px;
+  left: 577px;
+  width: 221px;
+  height: 53px;
+}
+
+#flaws {
+  top: 440px;
+  left: 577px;
+  width: 221px;
+  height: 53px;
+}
+
+#feats {
+  top: 531px;
+  left: 567px;
+  width: 230px;
+  height: 510px;
+}
+
+.checkbox {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+}
+#dss1 {
+  top: 445px;
+  left: 477px;
+}
+#dss2 {
+  top: 445px;
+  left: 495px;
+}
+#dss3 {
+  top: 445px;
+  left: 513px;
+}
+#dsf1 {
+  top: 466px;
+  left: 477px;
+}
+#dsf2 {
+  top: 466px;
+  left: 495px;
+}
+#dsf3 {
+  top: 466px;
+  left: 513px;
+}
