@@ -1,13 +1,28 @@
 import artificer from "./characters/artificer";
 import hugo from "./characters/hugo_von_sonson";
+import dedd from "./characters/druid_spored";
 import { useState } from "react";
 
 function App() {
-  let char = hugo
+  let char = dedd
   const [hp, setHp] = useState(char.hp)
   const [tempHp, setTempHp] = useState(0)
   const [isOpen, setIsOpen] = useState(false)
+  const [spellOpen, setSpellOpen] = useState(false)
   const [boxContent, setBoxContent] = useState({ title: "Init", text: "None" })
+  const all_spells = char.spells.cantrips.concat(
+    char.spells.lv1,
+    char.spells.lv2,
+    char.spells.lv3,
+    char.spells.lv4,
+    char.spells.lv5,
+    char.spells.lv6,
+    char.spells.lv7,
+    char.spells.lv8,
+    char.spells.lv9,
+    char.spells.lv10,
+  )
+  const [spellList, setSpellList] = useState(all_spells)
   const str_mod = Math.floor((char.str - 10) / 2)
   const dex_mod = Math.floor((char.dex - 10) / 2)
   const con_mod = Math.floor((char.con - 10) / 2)
@@ -49,17 +64,45 @@ function App() {
     setIsOpen(!isOpen)
   }
 
+  function openSpellbox(title, text) {
+    if (text == 'cantrips') {
+      setSpellList(char.spells.cantrips)
+    } else if (text == 'prepared') {
+      setSpellList([char.spells.lv1[0]])
+    } else {
+      setSpellList(all_spells)
+    }
+    setSpellOpen(!spellOpen)
+  }
+
   return (
     <div className="container">
       {isOpen &&
-        <div className="box" onClick={() => openbox('no', 'noooo')} style={{ color: 'black' }}>
+        <div className="box" onClick={() => openbox('', '')} style={{ color: 'black' }}>          
           <h3>{boxContent.title}</h3>
           <p>{boxContent.text}</p>
         </div>
       }
+      {spellOpen &&
+        <div className="box" onClick={() => openSpellbox('', '')} style={{ color: 'black' }}>
+            {spellList.length ? spellList.map(function (x) {
+              return (
+                <div id={x.name}>
+                  <h3>{x.name}</h3>
+                  {/* <div>Casting time: {x.casting_time}</div>
+                  <div>Range: {x.range}</div>
+                  <div>Components: {x.components}</div>
+                  <div>Duration: {x.duration}</div>
+                  <div>Text: {x.text}</div>
+                  <div>Higher Levels: {x.levels}</div> */}
+                </div>
+              )
+            }) : 'None'}
+        </div>
+      }
       <div className="button-container">
-        <button onClick={() => openbox('first', 'hej')}>hej</button>
-        <button onClick={() => openbox('second', 'tjo')}>tjo</button>
+        <button onClick={() => openbox('first', 'hej')}>My Familiar</button>
+        <button onClick={() => openbox('second', 'tjo')}>All Familiar</button>
       </div>
       <img
         src="./5E_CharacterSheet_Fillable_page-0001.jpg"
@@ -77,24 +120,24 @@ function App() {
         <div id="alignment" className="input start" >{char.alignment}</div>
         <div id="exp" className="input start" >0</div>
         {/* HP */}
-        <div id="inspiration" className="input" ></div>
-        <div id="pb" className="input" >{char.pb}</div>
-        <div id="ac" className="input" >{10 + dex_mod}</div>
-        <div id="initiative" className="input" >0</div>
-        <div id="speed" className="input" >{char.speed}</div>
-        <div id="max_hp" className="input" >{char.hp}</div>
-        <div id="current_hp" className="input">
+        <div id="inspiration" className="input"></div>
+        <div id="pb" className="input big">{char.pb}</div>
+        <div id="ac" className="input big">{10 + dex_mod}</div>
+        <div id="initiative" className="input big">0</div>
+        <div id="speed" className="input big">{char.speed}</div>
+        <div id="max_hp" className="input">{char.hp}</div>
+        <div id="current_hp" className="input big">
           <button onClick={() => setHp(hp - 1)}>-</button>
           {hp}
           <button onClick={() => setHp(hp + 1)}>+</button>
         </div>
-        <div id="temp_hp" className="input">
+        <div id="temp_hp" className="input big">
           <button onClick={() => setTempHp(tempHp - 1)}>-</button>
           {tempHp}
           <button onClick={() => setTempHp(tempHp + 1)}>+</button>
         </div>
         <div id="max_hp2" className="input">{char.hp}</div>
-        <div id="hit_dice" className="input">{char.hit_dice}</div>
+        <div id="hit_dice" className="input big">1d{char.hit_dice}</div>
         <input type="checkbox" id="dss1" className="checkbox" />
         <input type="checkbox" id="dss2" className="checkbox" />
         <input type="checkbox" id="dss3" className="checkbox" />
@@ -102,18 +145,18 @@ function App() {
         <input type="checkbox" id="dsf2" className="checkbox" />
         <input type="checkbox" id="dsf3" className="checkbox" />
         {/* Stats */}
-        <div id="str_mod" className="input stat_mod" >{str_mod}</div>
+        <div id="str_mod" className="input stat_mod big" >{str_mod}</div>
         <div id="str" className="input stat_val" >{char.str}</div>
-        <div id="dex_mod" className="input stat_mod" >{char.dex}</div>
-        <div id="dex" className="input stat_val" >{dex_mod}</div>
-        <div id="con_mod" className="input stat_mod" >{char.con}</div>
-        <div id="con" className="input stat_val" >{con_mod}</div>
-        <div id="int_mod" className="input stat_mod" >{char.int}</div>
-        <div id="int" className="input stat_val" >{int_mod}</div>
-        <div id="wis_mod" className="input stat_mod" >{char.wis}</div>
-        <div id="wis" className="input stat_val" >{wis_mod}</div>
-        <div id="cha_mod" className="input stat_mod" >{char.cha}</div>
-        <div id="cha" className="input stat_val" >{cha_mod}</div>
+        <div id="dex_mod" className="input stat_mod big" >{dex_mod}</div>
+        <div id="dex" className="input stat_val" >{char.dex}</div>
+        <div id="con_mod" className="input stat_mod big" >{con_mod}</div>
+        <div id="con" className="input stat_val" >{char.con}</div>
+        <div id="int_mod" className="input stat_mod big" >{int_mod}</div>
+        <div id="int" className="input stat_val" >{char.int}</div>
+        <div id="wis_mod" className="input stat_mod big" >{wis_mod}</div>
+        <div id="wis" className="input stat_val" >{char.wis}</div>
+        <div id="cha_mod" className="input stat_mod big" >{cha_mod}</div>
+        <div id="cha" className="input stat_val" >{char.cha}</div>
         <div id="passive_perception" className="input" >
           {char.proficiencies.skills.includes('perception') ? 10 + wis_mod + char.pb : 10 + wis_mod}
         </div>
@@ -194,9 +237,9 @@ function App() {
         <div id="trait" className="input">
           spell slots
         </div>
-        <div id="ideals" className="input">cantrips</div>
-        <div id="bonds" className="input">spells</div>
-        <div id="flaws" className="input">other abilities</div>
+        <div id="ideals" className="input" onClick={() => openSpellbox('cantrips')}>Cantrips</div>
+        <div id="bonds" className="input" onClick={() => openSpellbox('all')}>All Spells</div>
+        <div id="flaws" className="input" onClick={() => openSpellbox('prepared')}>Prepared Spells</div>
         <div id="feats" className="list">
           {char.feat.length ? char.feat.map(function (x) {
             return <div id={`feat_${x.name}`} onClick={() => openbox(x.name, x.val)}>{x.name}</div>

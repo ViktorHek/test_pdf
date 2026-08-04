@@ -41,10 +41,11 @@ const hugo = {
     ],
     spells: {
         slots: [4,2],
+        prepared: [],
         cantrips: [
             {
                 name: 'Fire Bolt', 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: '120 feet',
                 components: ['v', 's'],
                 duration: 'instantaneous',
@@ -52,7 +53,7 @@ const hugo = {
             },
             {
                 name: 'Minor Illusion', 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: '30 feet',
                 components: ['s', 'm'],
                 duration: '1 min',
@@ -60,7 +61,7 @@ const hugo = {
             },
             {
                 name: 'Shape Water', 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: '30 feet',
                 components: ['s'],
                 duration: 'instantaneous or 1 hour',
@@ -70,7 +71,7 @@ const hugo = {
         lv1: [
             {
                 name: "Disguise Self", 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: 'self',
                 components: ['v', 's'],
                 duration: '1 hour',
@@ -78,7 +79,7 @@ const hugo = {
             },
             {
                 name: "Find Familiar", 
-                casting_tiime: '1 hour',
+                casting_time: '1 hour',
                 range: '10 feet',
                 components: ['v', 's', 'm(10gp)'],
                 duration: 'Instantaneous',
@@ -86,7 +87,7 @@ const hugo = {
             },
             {
                 name: "Ice Knife", 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: '60 feet',
                 components: ['s', 'm'],
                 duration: 'Instantaneous',
@@ -94,7 +95,7 @@ const hugo = {
             },
             {
                 name: "Silvery Barbs", 
-                casting_tiime: '1 reaction, which you take when a creature you can see within 60 feet of yourself succeeds on an attack roll, an ability check, or a saving throw',
+                casting_time: '1 reaction, which you take when a creature you can see within 60 feet of yourself succeeds on an attack roll, an ability check, or a saving throw',
                 range: '60 feet',
                 components: ['v'],
                 duration: 'Instantaneous',
@@ -102,7 +103,7 @@ const hugo = {
             },
             {
                 name: "Witch Bolt", 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: '30 feet',
                 components: ['v', 's', 'm'],
                 duration: 'Concentration, up to 1 minute',
@@ -110,7 +111,7 @@ const hugo = {
             },
             {
                 name: "Color Spray", 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: 'self (15-foot cone)',
                 components: ['v', 's', 'm'],
                 duration: '1 round',
@@ -120,7 +121,7 @@ const hugo = {
         lv2: [
             {
                 name: "Detect Thoughts", 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: 'self',
                 components: ['v', 's', 'm'],
                 duration: 'Concentration, up to 1 minute',
@@ -130,7 +131,7 @@ const hugo = {
         lv3: [
             {
                 name: "Animate Dead", 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: '10-foot',
                 components: ['v', 's', 'm'],
                 duration: 'Instantaneous',
@@ -170,7 +171,13 @@ const hugo = {
         {name: "Tinderbox", val: "A Tinderbox is a small container holding flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a Candle, Lamp, Lantern, or Torch—or anything else with exposed fuel—takes a Bonus Action. Lighting any other fire takes 1 minute."},
         {name: "Torches x 10", val: ""},
         {name: "Food x 10", val: ""},
-    ]
+    ],
+    story: {
+        intro: "",
+        background: "",
+        personality: "",
+    }
+
 }
 
 export default hugo
