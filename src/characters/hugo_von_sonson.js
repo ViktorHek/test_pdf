@@ -146,9 +146,30 @@ const hugo = {
         lv10: [],
     },
     equipment: [
+        {name: "Cell Key", val: "Key to prison cell. Has symbol to match door"},
+        {name: "Lether armor", val: "Not wearing. not profisient"},
+        {name: "Salt", val: ""},
+        {name: "Human Skull", val: ""},
+        {name: "Onix Gem", val: "unknone value"},
+        {name: "Wand of Bone", val: "1 charge left. casting animate dead spell. Needs constitution saving trow, else the undead attack you"},
+        {name: "Human Ashes", val: "From an guard I turned undead."},
+        {name: "Human Flesh", val: "Taken from guard. can be used for animate undead."},
+        {name: "Human Boandust", val: "Taken from guard. can be used for animate undead."},
+        {name: "Human Blood in waterskin", val: "Taken from guard. can be used for animate undead."},
+        {name: "Fine Shortsword", val: "Value: 10 gp. Damage: 1d6 piercing. Weight: 2 lb. Properties: Finesse, light"},
+        {name: "5 Arrows", val: ""},
+        {name: "Red potion", val: "Unknown effekt"},
+        {name: "Rope 50", val: "50 feet normal rope"},
+        {name: "quarts", val: "väldigt värdefull sten"},
         {name: "ink & Quill", val: ""},
         {name: "Dagger", val: "damage: 1d4 piercing. properties: Finesse, light, thrown (20/60)"},
-        {name: "Book", val: "What is imortality?"}
+        {name: "Books", val: "What is imortality? & story book & Grimoar"},
+        {name: "Ring of transended life", val: "A ring that gives the user the fysical strenth and mental clarity they had 400 years ago. Needs atunment. The ring can not be removed by anyone exept the one wering it. If Hugo Von Sonson removes the ring, he dies."},
+        {name: "Cigarets x 8", val: ""},
+        {name: "Quaterstaff", val: "1d6 bludgeoning. versatile 1d8"},
+        {name: "Tinderbox", val: "A Tinderbox is a small container holding flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a Candle, Lamp, Lantern, or Torch—or anything else with exposed fuel—takes a Bonus Action. Lighting any other fire takes 1 minute."},
+        {name: "Torches x 10", val: ""},
+        {name: "Food x 10", val: ""},
     ]
 }
 
