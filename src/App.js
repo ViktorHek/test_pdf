@@ -65,6 +65,7 @@ function App() {
   }
 
   function openSpellbox(title, text) {
+    setSpellList([])
     if (text == 'cantrips') {
       setSpellList(char.spells.cantrips)
     } else if (text == 'prepared') {

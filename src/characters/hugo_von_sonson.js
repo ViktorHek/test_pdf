@@ -176,6 +176,7 @@ const hugo = {
         intro: "",
         background: "",
         personality: "",
+        features: ""
     }
 
 }
