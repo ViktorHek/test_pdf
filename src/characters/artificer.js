@@ -47,7 +47,7 @@ const artificer = {
         cantrips: [
             {
                 name: 'Mending', 
-                casting_tiime: '1 min',
+                casting_time: '1 min',
                 range: 'touch',
                 components: ['v', 's', 'm'],
                 duration: 'instantaneous',
@@ -55,7 +55,7 @@ const artificer = {
             },
             {
                 name: 'Thunderclap', 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: 'Self (5-foot radius',
                 components: ['s'],
                 duration: 'instantaneous',
@@ -65,7 +65,7 @@ const artificer = {
         lv1: [
             {
                 name: "Heroism", 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: 'touch',
                 components: ['v', 's'],
                 duration: 'concentration, up to 1 min',
@@ -73,7 +73,7 @@ const artificer = {
             },
             {
                 name: "Shield", 
-                casting_tiime: '1 reaction, which you take when you are hit by an attack or targeted by the magic missile spell',
+                casting_time: '1 reaction, which you take when you are hit by an attack or targeted by the magic missile spell',
                 range: 'self',
                 components: ['v', 's'],
                 duration: 'instantaneous',
@@ -81,7 +81,7 @@ const artificer = {
             },
             {
                 name: "Arcane Weapon", 
-                casting_tiime: '1 bonus action',
+                casting_time: '1 bonus action',
                 range: 'self',
                 components: ['v', 's'],
                 duration: 'concentration, up to 1 hour',
@@ -89,7 +89,7 @@ const artificer = {
             },
             {
                 name: "Tasha's Caustic Brew", 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: 'self (30-foot line)',
                 components: ['v', 's', 'm'],
                 duration: 'concentration, up to 1 hour',
@@ -97,7 +97,7 @@ const artificer = {
             },
             {
                 name: "Grease", 
-                casting_tiime: '1 action',
+                casting_time: '1 action',
                 range: '60 feet',
                 components: ['v', 's', 'm'],
                 duration: '1 min',
