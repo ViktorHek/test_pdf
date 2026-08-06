@@ -2,45 +2,58 @@ const hugo = {
     name: "Max Platinum",
     class: "Druid",
     subclass: "spores",
-    level: 3,
+    level: 4,
     pb: 2,
     alignment: '',
     proficiencies: {
         armor: ['light', 'medium', 'shields', 'Not Metal'],
         weapons: ['simple', 'longsword', 'shortsword', 'shortbow', 'longbow'],
         tools: ['Herbalism', 'thieve'],
-        languages: ['common', 'elven', 'druidic'],
+        languages: ['common', 'infernal', 'druidic'],
         saving: ['int', 'wis'],
-        skills: ['perseption', 'insight', 'survival', 'deception', 'stealth'],
+        skills: ['insight', 'survival', 'deception', 'stealth'],
     },
     background: 'Criminal',
-    race: 'Wood Elf',
+    race: 'Plasmoid',
     size: 'Medium',
-    speed: 35,
+    speed: 30,
     gold: 0,
     silver: 0,
     copper: 0,
+    armor: 1,
     hit_dice: 8,
-    hp: 13,
+    hp: 32,
     str: 12,
-    dex: 14,
-    con: 13,
-    int: 8,
-    wis: 16,
-    cha: 10,
+    dex: 15 + 1,
+    con: 14 + 2,
+    int: 10,
+    wis: 13 + 1,
+    cha: 8,
     feat: [
         {name: "", val: ""},
+        {name: "Shape Self", val: "As an action, you can reshape your body to give yourself a head, one or two arms, one or two legs, and makeshift hands and feet, or you can revert to a limbless blob. While you have a humanlike shape, you can wear clothing and armor made for a Humanoid of your size. As a bonus action, you can extrude a pseudopod that is up to 6 inches wide and 10 feet long or reabsorb it into your body. As part of the same bonus action, you can use this pseudopod to manipulate an object, open or close a door or container, or pick up or set down a Tiny object. The pseudopod contains no sensory organs and can’t attack, activate magic items, or lift more than 10 pounds."},
+        {name: "Natural Resilience", val: "You have resistance to acid and poison damage, and you have advantage on saving throws against being poisoned."},
+        {name: "Hold Breath", val: "You can hold your breath for 1 hour."},
+        {name: "Darkvision", val: "You can see in dim light within 60 feet of yourself as if it were bright light, and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."},
+        {name: "Amorphous", val: "You can squeeze through a space as narrow as 1 inch wide, provided you are wearing and carrying nothing. You also have advantage on ability checks you make to initiate or escape a grapple."},
+        {name: "Slasher", val: "You've learned where to cut to have the greatest results, granting you the following benefits: * Increase your Strength or Dexterity by 1, to a maximum of 20. * Once per turn when you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 feet until the start of your next turn. * When you score a critical hit that deals slashing damage to a creature, you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls."},
+        // {name: "Durable", val: "Hardy and resilient, you gain the following benefits: * Increase your Constitution score by 1, to a maximum of 20. * When you roll a Hit Die to regain hit points, the minimum number of hit points you regain from the roll equals twice your Constitution modifier (minimum of 2)."},
         {name: "Symbiotic Entity", val: "Also at 2nd level, you gain the ability to channel magic into your spores. As an action, you can expend a use of your Wild Shape feature to awaken those spores, rather than transforming into a beast form, and you gain 4 temporary hit points for each level you have in this class. While this feature is active, you gain the following benefits: \nWhen you deal your Halo of Spores damage, roll the damage die a second time and add it to the total. \nYour melee weapon attacks deal an extra 1d6 necrotic damage to any target they hit. \nThese benefits last for 10 minutes, until you lose all these temporary hit points. or until you use your Wild Shape again."},
         {name: "Halo of Spores", val: "Starting at 2nd level, you are surrounded by invisible, necrotic spores that are harmless until you unleash them on a creature nearby. When a creature you can see moves into a space within 10 feet of you or starts its turn there, you can use your reaction to deal 1d4 necrotic damage to that creature unless it succeeds on a Constitution saving throw against your spell save DC. The necrotic damage increases to 1d6 at 6th level, 1d8 at 10th level, and 1d10 at 14th level."},
-        {name: "Wild Shape", val: "Transform into cow"},
-        {name: "Mask of the Wild", val: "You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."},
-        {name: "Trance", val: "Elves do not sleep. Instead they meditate deeply, remaining semi-conscious, for 4 hours a day. The Common word for this meditation is 'trance.' While meditating, you dream after a fashion; such dreams are actually mental exercises that have become reflexive after years of practice. After resting in this way, you gain the same benefit a human would from 8 hours of sleep."},
-        {name: "Fey Ancestry", val: "You have advantage on saving throws against being charmed, and magic can't put you to sleep."},
-        {name: "Darkvision", val: "Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."},
+        {name: "Wild Shape", val: "Transform into cow. max CR 1/2"},
     ],
     spells: {
         slots: [4,2],
         cantrips: [
+            {
+                name: 'Infestation', 
+                casting_tiime: '1 action',
+                range: '30 feet',
+                components: ['v', 's', 'm'],
+                duration: 'Instantaneous',
+                val: "You cause a cloud of mites, fleas, and other parasites to appear momentarily on one creature you can see within range. The target must succeed on a Constitution saving throw, or it takes 1d6 poison damage and moves 5 feet in a random direction if it can move and its speed is at least 5 feet. Roll a d4 for the direction: 1, north; 2, south; 3, east; or 4, west. This movement doesn’t provoke opportunity attacks, and if the direction rolled is blocked, the target doesn't move.",
+                levels: "The spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+            },
             {
                 name: 'Thorn Whip', 
                 casting_tiime: '1 action',
@@ -73,18 +86,46 @@ const hugo = {
                 range: 'self (10-foot radius)',
                 components: ['v', 's'],
                 duration: 'Instantaneous',
-                val: "You cause a tremor in the ground in a 10-foot radius. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared. \nAt Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
+                val: "You cause a tremor in the ground in a 10-foot radius. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared.",
+                levels: "At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
             },
             {
-                name: 'Healing Word', 
-                casting_tiime: '1 bonus action',
-                range: '60 feet',
-                components: ['v'],
-                duration: 'Instantaneous',
-                val: "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead or constructs. \nAt Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d4 for each slot level above 1st."
+                name: 'Protection from Evil and Good', 
+                casting_tiime: '1 action',
+                range: 'Touch',
+                components: ['v', 's', 'm (holy water)'],
+                duration: 'Concentration, up to 10 minutes',
+                val: "Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations, celestials, elementals, fey, fiends, and undead. \nThe protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can't be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.",
+                levels: ""
+            },
+            {
+                name: 'Absorb Elements', 
+                casting_tiime: '1 reaction, which you take when you take acid, cold, fire, lightning, or thunder damage',
+                range: 'Self',
+                components: ['s'],
+                duration: '1 round',
+                val: "The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends.",
+                levels: "When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st."
             },
         ],
         lv2: [
+            {
+                name: 'Hold Person', 
+                casting_tiime: '1 action',
+                range: '60 feet',
+                components: ['v', 's', 'm'],
+                duration: 'Concentration, up to 1 min',
+                val: "Choose a humanoid that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.",
+                levels: "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional humanoid for each slot level above 2nd. The humanoids must be within 30 feet of each other when you target them."
+            },
+            {
+                name: 'Summon Beast', 
+                casting_tiime: '1 action',
+                range: '90 feet',
+                components: ['v', 's', 'm (200gp)'],
+                duration: 'Concentration, up to 1 hour',
+                val: "You call forth a bestial spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Bestial Spirit stat block. When you cast the spell, choose an environment: Air, Land, or Water. The creature resembles an animal of your choice that is native to the chosen environment, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends. \nThe creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don’t issue any, it takes the Dodge action and uses its move to avoid danger."
+            },
             {
                 name: 'Barkskin', 
                 casting_tiime: '1 action',
@@ -122,8 +163,12 @@ const hugo = {
     },
     equipment: [
         {name: "Scimitar x 2", val: "1d6 piercing. Finesse, light"},
-        {name: "Whip", val: "1d6 piercing. Finesse, reach"},
-        {name: "Spear", val: "1d6 piercing. Thrown (20/60), versatile (1d8)"},
+        {name: "Leather Armor", val: "+1 to AC"},
+        {name: "explorer's pack", val: "Includes a backpack, a bedroll, a mess kit, a tinderbox, 10 torches, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it."},
+        {name: "druidic focus", val: "A Crusefix"},
+
+        // {name: "Whip", val: "1d6 piercing. Finesse, reach"},
+        // {name: "Spear", val: "1d6 piercing. Thrown (20/60), versatile (1d8)"},
     ]
 }
 
