@@ -172,6 +172,28 @@ const hugo = {
         {name: "Torches x 10", val: ""},
         {name: "Food x 10", val: ""},
     ],
+    familiar: {
+        name: "Raven",
+        ac: 12,
+        hp: 1,
+        speed: "10 feet, Fly 50 feet",
+        pb: 2,
+        str: 2,
+        dex: 14,
+        con: 8,
+        int: 2,
+        wis: 12,
+        cha: 6,
+        skills: ['perseption + 3'],
+        senses: "Passive Perseption 13",
+        languages: "",
+        traits: [
+            {name: "Mimicry", val: "The raven can mimic simple sounds it has heard, such as a person whispering, a baby crying, or an animal chittering. A creature that hears the sounds can tell they are imitations with a successful DC 10 Wisdom (Insight) check."}
+        ],
+        actions: [
+            {name: "Beak", val: "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 piercing damage."}
+        ]
+    },
     story: {
         intro: "",
         background: "",
