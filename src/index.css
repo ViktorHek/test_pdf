@@ -108,7 +108,6 @@
   font-size: 16px;
   color: var(--black);
   background-color: var(--bg-dark);
-  /* filter: brightness(95%); */
   border: 1px solid var(--gray);
   margin: 20px;
   display: flex;
@@ -133,11 +132,18 @@
   flex-direction: column;
 }
 
+.familiar > div:first-child {
+  margin-top: 20px;
+}
+.familiar > div:last-child {
+  margin-bottom: 20px;
+}
+
 .familiar > span {
   width: 80%;
   background-color: var(--black);
   height: 1px;
-  margin: 10px 0px;
+  margin: 15px 0px;
 }
 
 .container > img,
@@ -153,6 +159,32 @@
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.abi {
+  width: 40%;
+  justify-content: space-between;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 10%;
+}
+
+.abi > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.abi > div > div {
+  height: 20px;
 }
 
 .input {
@@ -173,12 +205,24 @@
   overflow-y: scroll;
 }
 
+.spell-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.spell > span {
+  font-size: large;
+  font-weight: bold;
+  margin: 5px 0px;
+}
+
 .start {
   justify-content: flex-start;
 }
 
 .full-spell > div {
-  margin: 4px 0px;
+  margin: 5px 0px;
   color: var(--black);
 }
 

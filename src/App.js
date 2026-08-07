@@ -107,6 +107,7 @@ function App() {
       components: s.components,
       duration: s.duration,
       val: s.val,
+      levels: s.levels ? s.levels : null
     };
     setSpell(obj);
   }
@@ -130,10 +131,7 @@ function App() {
                 <div>Speed: {familiar.speed}</div>
                 <span></span>
                 <div>Abilities</div>
-                <div
-                  className="row"
-                  style={{ width: "80%", justifyContent: "space-evenly", height: 40 }}
-                >
+                <div className="abi">
                   {[
                     { name: "str", val: familiar.str },
                     { name: "dex", val: familiar.dex },
@@ -143,18 +141,9 @@ function App() {
                     { name: "cha", val: familiar.cha },
                   ].map(function (x) {
                     return (
-                      <div
-                        id={`fam_${x.name}`}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          flexDirection: "column",
-                          height: '100%',
-                        }}
-                      >
-                        <p style={{height: '50%'}}>{x.name}</p>
-                        <p style={{height: '50%'}}>{x.val}</p>
+                      <div id={`fam_${x.name}`}>
+                        <div>{x.name}</div>
+                        <div>{x.val}</div>
                       </div>
                     );
                   })}
@@ -198,8 +187,8 @@ function App() {
                     <div>Range: {spell.range}</div>
                     <div>Components: {spell.components}</div>
                     <div>Duration: {spell.duration}</div>
-                    <div>Text: {spell.val}</div>
-                    <div>Higher Levels: {spell.levels}</div>
+                    <div >{spell.val}</div>
+                    {spell.levels && <div>Higher Levels: {spell.levels}</div>}
                   </div>
                 </div>
               </div>
@@ -217,7 +206,9 @@ function App() {
                 </div>
               </div>
               <div className="body">
-                <div style={{ display: "flex", flexDirection: "column" }}>
+                <div 
+                  className="spell-list"
+                >
                   {spellList.map(function (x) {
                     return (
                       <div
@@ -225,7 +216,7 @@ function App() {
                         className="spell click"
                         onClick={() => selectSpell(x.name)}
                       >
-                        <h3>{x.name}</h3>
+                        <span>{x.name}</span>
                       </div>
                     );
                   })}
@@ -281,7 +272,7 @@ function App() {
           {char.pb}
         </div>
         <div id="ac" className="input big">
-          {10 + dex_mod}
+          {10 + dex_mod + char.armor}
         </div>
         <div id="initiative" className="input big">
           0
