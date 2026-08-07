@@ -32,8 +32,7 @@
   top: 40px;
   left: 29px;
   width: 800px;
-  max-height: 80%;
-  min-height: 20%;
+  /* height: 90vh; for scrolling */ 
   max-height: 90%;
   margin: auto;
   display: flex;
@@ -104,16 +103,15 @@
 
 .box > .body {
   width: 95%;
-  height: 90%;
-  font-size: 16px;
+  height: 85%;
+  font-size: 24px;
   color: var(--black);
   background-color: var(--bg-dark);
-  /* filter: brightness(95%); */
   border: 1px solid var(--gray);
   margin: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   border-radius: 5px;
   box-shadow: 10px 5px 5px rgba(0,0,0,0.2);
 }
@@ -133,11 +131,18 @@
   flex-direction: column;
 }
 
+.familiar > div:first-child {
+  margin-top: 20px;
+}
+.familiar > div:last-child {
+  margin-bottom: 20px;
+}
+
 .familiar > span {
   width: 80%;
   background-color: var(--black);
   height: 1px;
-  margin: 10px 0px;
+  margin: 15px 0px;
 }
 
 .container > img,
@@ -153,6 +158,32 @@
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.abi {
+  width: 40%;
+  justify-content: space-between;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 10%;
+}
+
+.abi > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.abi > div > div {
+  height: 20px;
 }
 
 .input {
@@ -173,12 +204,31 @@
   overflow-y: scroll;
 }
 
+.spell-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 95%;
+}
+
+.spell {
+  font-size: large;
+  font-weight: bold;
+  margin: 5px 0px;
+}
+.spell:first-child {
+  margin-top: 30px;
+}
+.spell:last-child {
+  margin-bottom: 30px;
+}
+
 .start {
   justify-content: flex-start;
 }
 
 .full-spell > div {
-  margin: 4px 0px;
+  margin: 5px 0px;
   color: var(--black);
 }
 
@@ -220,4 +270,23 @@
   position: absolute;
   width: 12px;
   height: 12px;
+}
+
+.traits {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.spel-slot {
+  display: flex;
+  flex-direction: column;
+}
+.spel-slot > div {
+  display: flex;
+  flex-direction: row;
+}
+.spel-slot > div > div {
+  margin: 0px 2px;
 }

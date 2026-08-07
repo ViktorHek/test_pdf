@@ -24,8 +24,10 @@ function App() {
     char.spells.lv10,
   );
   const [spellList, setSpellList] = useState([]);
+  const [spellSlots, setSpellSlots] = useState(char.spells.slots);
   const [spellTitle, setSpellTitle] = useState("");
   const [spell, setSpell] = useState(null);
+  const [ugly_work_around, set_ugly_work_around] = useState(false);
   const [familiar, setfamiliar] = useState(null);
   const str_mod = Math.floor((char.str - 10) / 2);
   const dex_mod = Math.floor((char.dex - 10) / 2);
@@ -98,6 +100,14 @@ function App() {
     setSpell(null);
   }
 
+  function handleSlots(levels, isPlus) {
+    let s = spellSlots
+    let val = isPlus ? 1 : -1
+    s[levels-1] = s[levels-1] + val
+    setSpellSlots(s)
+    set_ugly_work_around(!ugly_work_around)
+  }
+
   function selectSpell(val) {
     let s = all_spells.find(({ name }) => name === val);
     let obj = {
@@ -107,6 +117,7 @@ function App() {
       components: s.components,
       duration: s.duration,
       val: s.val,
+      levels: s.levels ? s.levels : null
     };
     setSpell(obj);
   }
@@ -130,10 +141,7 @@ function App() {
                 <div>Speed: {familiar.speed}</div>
                 <span></span>
                 <div>Abilities</div>
-                <div
-                  className="row"
-                  style={{ width: "80%", justifyContent: "space-evenly", height: 40 }}
-                >
+                <div className="abi">
                   {[
                     { name: "str", val: familiar.str },
                     { name: "dex", val: familiar.dex },
@@ -143,18 +151,9 @@ function App() {
                     { name: "cha", val: familiar.cha },
                   ].map(function (x) {
                     return (
-                      <div
-                        id={`fam_${x.name}`}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          flexDirection: "column",
-                          height: '100%',
-                        }}
-                      >
-                        <p style={{height: '50%'}}>{x.name}</p>
-                        <p style={{height: '50%'}}>{x.val}</p>
+                      <div id={`fam_${x.name}`}>
+                        <div>{x.name}</div>
+                        <div>{x.val}</div>
                       </div>
                     );
                   })}
@@ -175,9 +174,11 @@ function App() {
                   {familiar.actions[0].name}. {familiar.actions[0].val}
                 </div>
               </div>
-            ) : (
-              <div>{boxContent.text}</div>
-            )}
+            ) : 
+            <div>
+              {boxContent.text ? <div>{boxContent.text}</div> : <div>No Description</div>}
+            </div>
+            }
           </div>
         </div>
       )}
@@ -198,8 +199,8 @@ function App() {
                     <div>Range: {spell.range}</div>
                     <div>Components: {spell.components}</div>
                     <div>Duration: {spell.duration}</div>
-                    <div>Text: {spell.val}</div>
-                    <div>Higher Levels: {spell.levels}</div>
+                    <div >{spell.val}</div>
+                    {spell.levels && <div>Higher Levels: {spell.levels}</div>}
                   </div>
                 </div>
               </div>
@@ -217,7 +218,9 @@ function App() {
                 </div>
               </div>
               <div className="body">
-                <div style={{ display: "flex", flexDirection: "column" }}>
+                <div 
+                  className="spell-list"
+                >
                   {spellList.map(function (x) {
                     return (
                       <div
@@ -225,7 +228,7 @@ function App() {
                         className="spell click"
                         onClick={() => selectSpell(x.name)}
                       >
-                        <h3>{x.name}</h3>
+                        <span>{x.name}</span>
                       </div>
                     );
                   })}
@@ -281,7 +284,7 @@ function App() {
           {char.pb}
         </div>
         <div id="ac" className="input big">
-          {10 + dex_mod}
+          {10 + dex_mod + char.armor}
         </div>
         <div id="initiative" className="input big">
           0
@@ -526,8 +529,31 @@ function App() {
         </div>
         <div id="pp" className="input"></div>
         {/* Right side */}
-        <div id="trait" className="input">
-          spell slots
+        <div id="trait" className="input traits">
+          <div className="spel-slot">
+            <div>Level 1</div>
+            <div>
+              <button onClick={() => handleSlots(1, false)}>-</button>
+              <div>{spellSlots[0]}</div>
+              <button onClick={() => handleSlots(1, true)}>+</button>
+            </div>
+          </div>
+          <div className="spel-slot">
+            <div>Level 2</div>
+            <div>
+              <button onClick={() => handleSlots(2, false)}>-</button>
+              <div>{spellSlots[1] ? spellSlots[1] : 0}</div>
+              <button onClick={() => handleSlots(2, true)}>+</button>
+            </div>
+          </div>
+          <div className="spel-slot">
+            <div>Level 3</div>
+            <div>
+              <button onClick={() => handleSlots(3, false)}>-</button>
+              <div>{spellSlots[2] ? spellSlots[2] : 0}</div>
+              <button onClick={() => handleSlots(3, true)}>+</button>
+            </div>
+          </div>
         </div>
         <div
           id="ideals"
