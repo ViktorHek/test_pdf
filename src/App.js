@@ -24,8 +24,10 @@ function App() {
     char.spells.lv10,
   );
   const [spellList, setSpellList] = useState([]);
+  const [spellSlots, setSpellSlots] = useState(char.spells.slots);
   const [spellTitle, setSpellTitle] = useState("");
   const [spell, setSpell] = useState(null);
+  const [ugly_work_around, set_ugly_work_around] = useState(false);
   const [familiar, setfamiliar] = useState(null);
   const str_mod = Math.floor((char.str - 10) / 2);
   const dex_mod = Math.floor((char.dex - 10) / 2);
@@ -98,6 +100,14 @@ function App() {
     setSpell(null);
   }
 
+  function handleSlots(levels, isPlus) {
+    let s = spellSlots
+    let val = isPlus ? 1 : -1
+    s[levels-1] = s[levels-1] + val
+    setSpellSlots(s)
+    set_ugly_work_around(!ugly_work_around)
+  }
+
   function selectSpell(val) {
     let s = all_spells.find(({ name }) => name === val);
     let obj = {
@@ -164,9 +174,11 @@ function App() {
                   {familiar.actions[0].name}. {familiar.actions[0].val}
                 </div>
               </div>
-            ) : (
-              <div>{boxContent.text}</div>
-            )}
+            ) : 
+            <div>
+              {boxContent.text ? <div>{boxContent.text}</div> : <div>No Description</div>}
+            </div>
+            }
           </div>
         </div>
       )}
@@ -517,8 +529,31 @@ function App() {
         </div>
         <div id="pp" className="input"></div>
         {/* Right side */}
-        <div id="trait" className="input">
-          spell slots
+        <div id="trait" className="input traits">
+          <div className="spel-slot">
+            <div>Level 1</div>
+            <div>
+              <button onClick={() => handleSlots(1, false)}>-</button>
+              <div>{spellSlots[0]}</div>
+              <button onClick={() => handleSlots(1, true)}>+</button>
+            </div>
+          </div>
+          <div className="spel-slot">
+            <div>Level 2</div>
+            <div>
+              <button onClick={() => handleSlots(2, false)}>-</button>
+              <div>{spellSlots[1] ? spellSlots[1] : 0}</div>
+              <button onClick={() => handleSlots(2, true)}>+</button>
+            </div>
+          </div>
+          <div className="spel-slot">
+            <div>Level 3</div>
+            <div>
+              <button onClick={() => handleSlots(3, false)}>-</button>
+              <div>{spellSlots[2] ? spellSlots[2] : 0}</div>
+              <button onClick={() => handleSlots(3, true)}>+</button>
+            </div>
+          </div>
         </div>
         <div
           id="ideals"
