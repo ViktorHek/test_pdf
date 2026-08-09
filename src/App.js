@@ -66,7 +66,7 @@ function App() {
   ];
 
   function openbox(title, val) {
-    if (title == "familiar") {
+    if (title === "familiar") {
       setBoxContent({ title: val.name, text: "" });
       setfamiliar(val);
     } else {
@@ -79,10 +79,10 @@ function App() {
   function openSpellbox(val) {
     setIsOpen(false);
     setSpellList(null);
-    if (val == "cantrips") {
+    if (val === "cantrips") {
       setSpellTitle("Cantrips");
       setSpellList(char.spells.cantrips);
-    } else if (val == "my") {
+    } else if (val === "my") {
       setSpellTitle("My Spells");
       setSpellList([char.spells.lv1[0]]);
     } else {
