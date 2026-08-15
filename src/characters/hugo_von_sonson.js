@@ -20,7 +20,7 @@ const hugo = {
     speed: 25,
     age: 500,
     background: 'Sage',
-    gold: 25,
+    gold: 33,
     silver: 5,
     copper: 0,
     hit_dice: 6,
@@ -178,6 +178,9 @@ const hugo = {
         {name: "Tinderbox", val: "A Tinderbox is a small container holding flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a Candle, Lamp, Lantern, or Torch—or anything else with exposed fuel—takes a Bonus Action. Lighting any other fire takes 1 minute."},
         {name: "Torches x 10", val: ""},
         {name: "Food x 10", val: ""},
+        {name: "Green potion", val: "contained in a spray bottle. unknown effect"},
+        {name: "Displacer Beast Claw", val: "Unknown effekt"},
+        {name: "", val: ""},
     ],
     familiar: {
         name: "Raven",
