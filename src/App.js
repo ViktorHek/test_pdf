@@ -1,6 +1,7 @@
 import artificer from "./characters/artificer";
 import hugo from "./characters/hugo_von_sonson";
 import dedd from "./characters/druid_spored";
+import aumbla from "./characters/aumbla";
 import { useState } from "react";
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
       setfamiliar(val);
     } else {
       setBoxContent({ title: title, text: val });
+      setfamiliar(null)
     }
     setIsOpen(!isOpen);
     setSpellOpen(false);
@@ -103,7 +105,7 @@ function App() {
   function handleSlots(levels, isPlus) {
     let s = spellSlots
     let val = isPlus ? 1 : -1
-    s[levels-1] = s[levels-1] + val
+    s[levels - 1] = s[levels - 1] + val
     setSpellSlots(s)
     set_ugly_work_around(!ugly_work_around)
   }
@@ -174,10 +176,10 @@ function App() {
                   {familiar.actions[0].name}. {familiar.actions[0].val}
                 </div>
               </div>
-            ) : 
-            <div>
-              {boxContent.text ? <div>{boxContent.text}</div> : <div>No Description</div>}
-            </div>
+            ) :
+              <div>
+                {boxContent.text ? <div>{boxContent.text}</div> : <div>No Description</div>}
+              </div>
             }
           </div>
         </div>
@@ -218,7 +220,7 @@ function App() {
                 </div>
               </div>
               <div className="body">
-                <div 
+                <div
                   className="spell-list"
                 >
                   {spellList.map(function (x) {
@@ -247,6 +249,9 @@ function App() {
         </button>
         <button className="click" onClick={() => changeChar(dedd)}>
           Dedd Valking
+        </button>
+        <button className="click" onClick={() => changeChar(aumbla)}>
+          Aumbla
         </button>
       </div>
       <img
@@ -398,6 +403,8 @@ function App() {
           let val = char.proficiencies.skills.includes(x.name)
             ? char.pb + x.val
             : x.val;
+          val += char.proficiencies.expertise.includes(x.name)
+            ? char.pb : 0
           return (
             <div>
               <div
@@ -416,32 +423,48 @@ function App() {
             <b>Armor:&nbsp;</b>
             {char.proficiencies.armor.length
               ? char.proficiencies.armor.map(function (x, i) {
-                  return <div id={`armor_${i}`}>{x},&nbsp;</div>;
-                })
+                return <div id={`armor_${i}`}>{x},&nbsp;</div>;
+              })
               : "None"}
           </div>
           <div className="row">
             <b>Weapons:&nbsp;</b>
             {char.proficiencies.weapons.length
               ? char.proficiencies.weapons.map(function (x, i) {
-                  return <div id={`weapons_${i}`}>{x},&nbsp;</div>;
-                })
+                return <div id={`weapons_${i}`}>{x},&nbsp;</div>;
+              })
+              : "None"}
+          </div>
+          <div className="row">
+            <b>Mastery:&nbsp;</b>
+            {char.proficiencies.mastery.length
+              ? char.proficiencies.mastery.map(function (x, i) {
+                return <div id={`mastery_${i}`}>{x},&nbsp;</div>;
+              })
+              : "None"}
+          </div>
+          <div className="row">
+            <b>Expertise:&nbsp;</b>
+            {char.proficiencies.expertise.length
+              ? char.proficiencies.expertise.map(function (x, i) {
+                return <div id={`expertise_${i}`}>{x},&nbsp;</div>;
+              })
               : "None"}
           </div>
           <div className="row">
             <b>Tools:&nbsp;</b>
             {char.proficiencies.tools.length
               ? char.proficiencies.tools.map(function (x, i) {
-                  return <div id={`tools_${i}`}>{x},&nbsp;</div>;
-                })
+                return <div id={`tools_${i}`}>{x},&nbsp;</div>;
+              })
               : "None"}
           </div>
           <div className="row">
             <b>Lang:&nbsp;</b>
             {char.proficiencies.languages.length
               ? char.proficiencies.languages.map(function (x, i) {
-                  return <div id={`armor_${i}`}>{x},&nbsp;</div>;
-                })
+                return <div id={`armor_${i}`}>{x},&nbsp;</div>;
+              })
               : "None"}
           </div>
         </div>
@@ -476,45 +499,45 @@ function App() {
         <div id="attack_list" className="list">
           {char.spells.cantrips.length
             ? char.spells.cantrips.map(function (x, i) {
-                return (
-                  <div
-                    id={`spell_${i}`}
-                    className="click"
-                    onClick={() => openbox(x.name, x.val)}
-                  >
-                    {x.name}
-                  </div>
-                );
-              })
+              return (
+                <div
+                  id={`spell_${i}`}
+                  className="click"
+                  onClick={() => openbox(x.name, x.val)}
+                >
+                  {x.name}
+                </div>
+              );
+            })
             : null}
           {char.spells.lv1.length
             ? char.spells.lv1.map(function (x, i) {
-                return (
-                  <div
-                    id={`spell_${i}`}
-                    className="click"
-                    onClick={() => openbox(x.name, x.val)}
-                  >
-                    {x.name}
-                  </div>
-                );
-              })
+              return (
+                <div
+                  id={`spell_${i}`}
+                  className="click"
+                  onClick={() => openbox(x.name, x.val)}
+                >
+                  {x.name}
+                </div>
+              );
+            })
             : null}
         </div>
         {/* Equipment */}
         <div id="equipment" className="list">
           {char.equipment.length
             ? char.equipment.map(function (x) {
-                return (
-                  <div
-                    id={`equipment_${x.name}`}
-                    className="click"
-                    onClick={() => openbox(x.name, x.val)}
-                  >
-                    {x.name}
-                  </div>
-                );
-              })
+              return (
+                <div
+                  id={`equipment_${x.name}`}
+                  className="click"
+                  onClick={() => openbox(x.name, x.val)}
+                >
+                  {x.name}
+                </div>
+              );
+            })
             : "None"}
         </div>
         <div id="cp" className="input">
@@ -579,16 +602,16 @@ function App() {
         <div id="feats" className="list">
           {char.feat.length
             ? char.feat.map(function (x) {
-                return (
-                  <div
-                    id={`feat_${x.name}`}
-                    className="click"
-                    onClick={() => openbox(x.name, x.val)}
-                  >
-                    {x.name}
-                  </div>
-                );
-              })
+              return (
+                <div
+                  id={`feat_${x.name}`}
+                  className="click"
+                  onClick={() => openbox(x.name, x.val)}
+                >
+                  {x.name}
+                </div>
+              );
+            })
             : "None"}
         </div>
       </div>

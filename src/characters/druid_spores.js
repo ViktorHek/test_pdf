@@ -12,6 +12,8 @@ const hugo = {
         languages: ['common', 'infernal', 'druidic'],
         saving: ['int', 'wis'],
         skills: ['insight', 'survival', 'deception', 'stealth'],
+        mastery: [],
+        expertise: []
     },
     background: 'Criminal',
     race: 'Plasmoid',

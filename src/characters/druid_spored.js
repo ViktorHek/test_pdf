@@ -12,6 +12,8 @@ const dedd = {
         languages: ['common', 'sylvan', 'druidic'],
         saving: ['int', 'wis'],
         skills: ['perseption', 'survival', 'deception', 'stealth'],
+        mastery: [],
+        expertise: []
     },
     background: 'Criminal',
     race: 'Plasmoid (ooze)',

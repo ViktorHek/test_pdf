@@ -12,6 +12,8 @@ const artificer = {
         languages: ['common', 'gnomish', 'dwarvish'],
         saving: ['con', 'int'],
         skills: ['insight', 'persuasion', 'perception', 'stealth', 'sleight', 'investigation'],
+        mastery: [],
+        expertise: []
     },
     race: 'Tabaxi',
     size: 'Medium',

@@ -12,6 +12,8 @@ const hugo = {
         languages: ['common', 'dwarvish', 'elvish', 'deep speech'],
         saving: ['int', 'wis'],
         skills: ['arcana', 'history', 'investigation', 'medicine'],
+        mastery: [],
+        expertise: []
     },
     race: 'Dwarf',
     size: 'Medium',
