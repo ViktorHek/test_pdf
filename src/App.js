@@ -177,7 +177,7 @@ function App() {
                 <span></span>
                 <div>Skills: {familiar.skills[0]}</div>
                 <div>Senses: {familiar.senses}</div>
-                <div onClick={() => set_ugly_work_around(!ugly_work_around)}>Language: {familiar.languages}</div>
+                <div onClick={uggo}>Language: {familiar.languages}</div>
                 <div>Proficiency Bonus: {familiar.pb}</div>
                 <span></span>
                 <div>Traits:</div>
