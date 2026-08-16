@@ -11,11 +11,6 @@
   position: absolute;
   width: 100px;
   height: 100px;
-  /* position: fixed;
-  height: 80%;
-  width: 80%;
-  top: 0;
-  left: 0; */
   background-color: red;
   opacity: 0.5;
   border: 1px solid blue;

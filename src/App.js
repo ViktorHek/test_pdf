@@ -126,9 +126,18 @@ function App() {
 
   function uggo() {
     set_ugly_work_around(!ugly_work_around)
+    const box3 = document.getElementsByTagName('body')
+    console.log(box3.pro)
     const box = document.getElementById('popup')
-    box.style.left = window.innerWidth + window.pageXOffset + 'px'
+    box.style.left = window.scrollH + 'px'
     box.style.top = window.innerHeight + window.pageYOffset + 'px'
+  }
+
+  function ll() {
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
+    console.log(window.pageXOffset)
+    console.log(window.pageYOffset)
   }
 
   return (
@@ -255,6 +264,9 @@ function App() {
         </div>
       )}
       <div className="button-container">
+        <button className="click" onClick={() => ll()}>
+          Log
+        </button>
         <button className="click" onClick={() => changeChar(hugo)}>
           Hugo Sonson
         </button>
