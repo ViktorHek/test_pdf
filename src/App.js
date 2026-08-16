@@ -126,6 +126,13 @@ function App() {
 
   return (
     <div className="container">
+      {ugly_work_around && (
+        <div className="popup">
+          <div>
+            <p>hello</p>
+          </div>
+        </div>
+      )}
       {isOpen && (
         <div className="box">
           <div className="title">
@@ -163,7 +170,7 @@ function App() {
                 <span></span>
                 <div>Skills: {familiar.skills[0]}</div>
                 <div>Senses: {familiar.senses}</div>
-                <div>Language: {familiar.languages}</div>
+                <div onClick={() => set_ugly_work_around(!ugly_work_around)}>Language: {familiar.languages}</div>
                 <div>Proficiency Bonus: {familiar.pb}</div>
                 <span></span>
                 <div>Traits:</div>
