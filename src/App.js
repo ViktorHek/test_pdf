@@ -124,10 +124,17 @@ function App() {
     setSpell(obj);
   }
 
+  function uggo() {
+    set_ugly_work_around(!ugly_work_around)
+    const box = document.getElementById('popup')
+    box.style.left = window.innerWidth + window.pageXOffset + 'px'
+    box.style.top = window.innerHeight + window.pageYOffset + 'px'
+  }
+
   return (
     <div className="container">
       {ugly_work_around && (
-        <div className="popup">
+        <div id="popup" className="popup">
           <div>
             <p>hello</p>
           </div>
